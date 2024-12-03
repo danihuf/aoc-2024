@@ -1,1 +1,7 @@
 .vscode
+.DS_Store
+*.sln
+*.csproj
+*.txt
+bin/
+obj/
