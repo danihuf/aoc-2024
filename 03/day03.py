@@ -2,7 +2,7 @@
 import sys
 import re
 
-input = '/Users/daniel/Documents/code/advent-of-code/aoc-2024/03/input.txt'
+input = 'input.txt'
 
 def parseInput(path: str) -> str:
     lines: str = ""
