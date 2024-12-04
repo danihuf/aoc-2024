@@ -30,3 +30,12 @@ def part1():
     print(calculateValidMemory(corruptedMem, regex))
 
 part1()
+
+def part2():
+    corruptedMem = parseInput(input).split('do()')
+    sum = 0
+    for line in corruptedMem:
+        sum += calculateValidMemory(line.split("don't()")[0], r'mul\((\d{1,3},\d{1,3})\)')
+    return sum
+
+print(part2())
