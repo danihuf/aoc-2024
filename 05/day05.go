@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
-	"strings"
 	"strconv"
+	"strings"
 )
 
 func main() {
@@ -18,10 +18,10 @@ func main() {
 	updatesStr := strings.Split(split[1], "\n")
 	count := getSortedUpdates(rules, updatesStr)
 	print(count) // print part 1
-}	
+}
 
 // PART 1
-func getSortedUpdates(rules []string, updates []string) (int) {
+func getSortedUpdates(rules []string, updates []string) int {
 	countMid := 0
 	// check for each update if it is sorted according to the rules
 	for _, update := range updates {
@@ -30,18 +30,18 @@ func getSortedUpdates(rules []string, updates []string) (int) {
 			conditions := strings.Split(rule, "|")
 			first := conditions[0]
 			second := conditions[1]
-			if strings.Contains(update, first) && strings.Contains(update, second){
-				if strings.Index(update, first) < strings.Index(update, second){
+			if strings.Contains(update, first) && strings.Contains(update, second) {
+				if strings.Index(update, first) < strings.Index(update, second) {
 					isUpdateSorted = true
-					}else {
-						isUpdateSorted = false
-						break
-					}
+				} else {
+					isUpdateSorted = false
+					break
 				}
+			}
 		}
-		if isUpdateSorted{
+		if isUpdateSorted {
 			updateSlice := strings.Split(update, ",")
-			midStr := updateSlice[len(updateSlice) / 2]
+			midStr := updateSlice[len(updateSlice)/2]
 			mid, err := strconv.Atoi(midStr)
 			if err != nil {
 				fmt.Print(err)
